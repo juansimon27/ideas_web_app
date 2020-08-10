@@ -1,0 +1,22 @@
+<div class="jumbotron jumbo-content bg-light">
+
+    <% if logged_in? %>
+        <h2>
+        What's in your mind <%= current_user.username %>?
+        </h2>
+        <hr class="my-4">
+        <p>Share with us!</p>
+        <button class="btn btn-light" role="button">
+            <%= link_to 'New Idea', '/users/new', method: :get %>
+        </button>
+    <% else %>
+        <h2>Hello, world!</h2>
+        <p class="lead">This is a simple web application where users are able to manage their ideas.</p>
+        <hr class="my-4">
+        <p>Not a member yet? Join us today!</p>
+        <button class="btn btn-light" role="button">
+            <%= link_to 'Sign Up', '/users/new', method: :get %>
+        </button>
+    <% end %>
+
+</div>

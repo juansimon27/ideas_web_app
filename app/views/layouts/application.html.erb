@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppIdeas</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <section id="top-bar">
+      <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+        <div class="container">
+          <a class="navbar-brand mb-0 h1">AppIdeas</a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item nav-link"><%= link_to 'Home', '/welcome', method: :get %></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/">GitHub</a></li>
+            <li class="nav-item ml-auto"><a class="nav-link" href="https://www.linkedin.com/">LinkedIn</a></li>
+          </ul>
+  
+          <ul class="navbar-nav ml-auto">
+            <% if logged_in? %>
+              <li class="nav-item nav-link">Signed as: <%= current_user.username %></li>
+              <li class="nav-item nav-link"><%= link_to 'Logout', '/logout', method: :get %></li>
+            <% else %>
+              <li class="nav-item nav-link"><%= link_to 'Login', '/login', method: :get %></li>
+              <li class="nav-item nav-link"><%= link_to 'Sign Up', '/users/new', method: :get %></li>
+            <% end %>
+          </ul>
+      </nav>
+    </section>
+
+    <section id="site-content" class="container">
+      <div class="row">
+        <div class="col-md-8">
+            <%= yield %>
+        </div>
+        <div class="col-md-4">
+        <div class="content-section">
+            <h3>Our Sidebar</h3>
+            <p class='text-muted'>You can put any information here you'd like.
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Ideas</li>
+                <li class="list-group-item list-group-item-light">Search Ideas</li>
+                <li class="list-group-item list-group-item-light">Contact Us</li>
+            </ul>
+            </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

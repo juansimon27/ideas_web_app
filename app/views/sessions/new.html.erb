@@ -1,0 +1,17 @@
+<h3 class="content-title">Login</h3>
+<br>
+<%= simple_form_for :login_user, { url: '/login' } do |f| %>
+
+    <% flash.each do |type, message| %>
+        <div class="alert alert-danger mr-auto">
+            <%= message %>
+        </div>
+    <% end %>
+
+<%= f.input :username %>
+
+<%= f.input :password %>
+
+<%= f.submit :submit %>
+
+<% end %> 
