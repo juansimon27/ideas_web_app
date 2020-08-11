@@ -1,0 +1,17 @@
+<h3 class="content-title">New Idea</h3>
+<br>
+<%= simple_form_for @idea do |f| %>
+
+    <% flash.each do |type, message| %>
+        <div class="alert alert-danger mr-auto">
+            <%= message %>
+        </div>
+    <% end %>
+
+<%= f.input :title %>
+
+<%= f.input :content %>
+
+<%= f.submit :submit %>
+
+<% end %> 
