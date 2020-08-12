@@ -18,10 +18,9 @@
         <div class="card-body">
         <p class='text-muted'>You can put any information here you'd like.</p>
         <ul class="list-group">
-        <%= link_to 'Create', new_idea_path(@idea), class: 'btn btn-secondary' %>
-            <li class="list-group-item"><%= link_to 'My Ideas', '/user/ideas', { class: 'list-group-item-light' } %></li>
-            <li class="list-group-item"><%= link_to 'Latest Ideas', '/ideas', { class: 'list-group-item-light' } %></li>
-            <li class="list-group-item list-group-item-light">Search Ideas</li>
+            <li class="list-group-item"><%= link_to 'New Idea', new_idea_path(@idea), class: 'list-group-item-light' %></li>
+            <li class="list-group-item"><%= link_to 'My Ideas', '/user/ideas', class: 'list-group-item-light' %></li>
+            <li class="list-group-item"><%= link_to 'Latest Ideas', '/ideas', class: 'list-group-item-light' %></li>
         </ul>
         <br>
         <ul class="list-group">

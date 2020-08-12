@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     else
       
       redirect_to '/login'
-      flash.now[:alert] = 'User not found!'
+      flash[:alert] = 'Incorrect user and password combination.'
 
     end
   end

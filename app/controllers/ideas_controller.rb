@@ -2,7 +2,8 @@ class IdeasController < ApplicationController
 
     def index
 
-        @ideas = Idea.all
+        @ideas = Idea.order(created_at: :desc).all
+        render locals: { page_title: 'Latest Ideas' }
         
     end
 
@@ -39,14 +40,9 @@ class IdeasController < ApplicationController
             
         @idea = Idea.find(params[:id])
 
-        if @idea.user_id == session[:user_id]
-
-            true
-        
-        else
+        if @idea.user_id != session[:user_id]
             
-            redirect_to @idea
-            flash[:alert] = 'You don\'t have permission to modify this idea'
+            redirect_to @idea, alert: 'You don\'t have permission to modify this idea.'
         
         end
 
@@ -68,11 +64,29 @@ class IdeasController < ApplicationController
 
     end
 
+    def destroy
+
+        @idea = Idea.find(params[:id])
+
+        if @idea.user_id != session[:user_id]
+            
+            redirect_to @idea, alert: 'You don\'t have permission to modify this idea.'
+        
+        else
+
+            @idea.destroy
+            redirect_to '/user/ideas'
+
+        end
+
+    end
+
     def user_ideas
 
         @user = User.find_by(id: session[:user_id])
-        @ideas = @user.ideas.all
-        render :index
+        page_title = @user.username + ' Ideas'
+        @ideas = @user.ideas.order(created_at: :desc).all
+        render :index, locals: { page_title: 'My Ideas'}
 
     end
 

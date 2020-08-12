@@ -1,7 +1,10 @@
-<h3 class="content-title">Edit Idea</h3>
-<br>
-<%= simple_form_for @idea do |f| %>
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.submit :Submit %>
-<% end %> 
+<div class="card my-4">
+    <h4 class="card-header">Edit Idea</h4>
+    <div class="content-section">
+        <%= simple_form_for @idea do |f| %>
+            <%= f.input :title %>
+            <%= f.input :content %>
+            <%= f.submit :Submit, class: 'btn btn-secondary' %>
+        <% end %>
+    </div>
+</div>
