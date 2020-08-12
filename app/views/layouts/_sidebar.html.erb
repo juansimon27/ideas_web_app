@@ -1,0 +1,32 @@
+
+
+<!-- Search Widget -->
+        <div class="card my-4">
+          <h4 class="card-header">Search</h4>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+    <div class="card my-4">
+        <h4 class="card-header">Our Sidebar</h4>
+        <div class="card-body">
+        <p class='text-muted'>You can put any information here you'd like.</p>
+        <ul class="list-group">
+        <%= link_to 'Create', new_idea_path(@idea), class: 'btn btn-secondary' %>
+            <li class="list-group-item"><%= link_to 'My Ideas', '/user/ideas', { class: 'list-group-item-light' } %></li>
+            <li class="list-group-item"><%= link_to 'Latest Ideas', '/ideas', { class: 'list-group-item-light' } %></li>
+            <li class="list-group-item list-group-item-light">Search Ideas</li>
+        </ul>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Git Repository</li>
+            <li class="list-group-item list-group-item-light">Contact Us</li>
+        </ul>
+        </div>
+    </div>

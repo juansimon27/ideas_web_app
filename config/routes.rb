@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :ideas
 
+  get 'user/ideas', to: 'ideas#user_ideas'
+
   get 'login', to: 'sessions#new'
 
   post 'login', to: 'sessions#create'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'logout', to: 'sessions#destroy'
 
+
   # get 'sessions/new'
   # get 'sessions/create'
   # get 'sessions/login'
@@ -21,4 +24,5 @@ Rails.application.routes.draw do
   # get 'users/new'
   # get 'users/create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'sessions#welcome'
 end

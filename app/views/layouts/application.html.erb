@@ -11,45 +11,25 @@
 
   <body>
 
-    <section id="top-bar">
-      <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-        <div class="container">
-          <a class="navbar-brand mb-0 h1">AppIdeas</a>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item nav-link"><%= link_to 'Home', '/welcome', method: :get %></li>
-            <li class="nav-item"><a class="nav-link" href="https://github.com/">GitHub</a></li>
-            <li class="nav-item ml-auto"><a class="nav-link" href="https://www.linkedin.com/">LinkedIn</a></li>
-          </ul>
-  
-          <ul class="navbar-nav ml-auto">
-            <% if logged_in? %>
-              <li class="nav-item nav-link">Signed as: <%= current_user.username %></li>
-              <li class="nav-item nav-link"><%= link_to 'Logout', '/logout', method: :get %></li>
-            <% else %>
-              <li class="nav-item nav-link"><%= link_to 'Login', '/login', method: :get %></li>
-              <li class="nav-item nav-link"><%= link_to 'Sign Up', '/users/new', method: :get %></li>
-            <% end %>
-          </ul>
-      </nav>
-    </section>
+    <%= render 'layouts/header' %>
 
     <section id="site-content" class="container">
       <div class="row">
         <div class="col-md-8">
-            <%= yield %>
+
+          <% flash.each do |type, message| %>
+            <br>
+            <div class="alert alert-warning"><%= message %></div>
+          <% end %>
+
+          <%= yield %>
+
         </div>
         <div class="col-md-4">
-        <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Ideas</li>
-                <li class="list-group-item list-group-item-light">Search Ideas</li>
-                <li class="list-group-item list-group-item-light">Contact Us</li>
-            </ul>
-            </p>
+
+          <%= render 'layouts/sidebar' %>
+
         </div>
-      </div>
     </section>
     
     <!-- Bootstrap -->

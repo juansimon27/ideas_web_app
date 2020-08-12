@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, :welcome]
   
   def new
-
   end
 
   def create
@@ -13,30 +12,33 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:login_user][:password])
 
       session[:user_id] = @user.id
-
       redirect_to '/welcome'
 
     else
       
-      flash[:alert] = 'User not found!'
-
       redirect_to '/login'
+      flash.now[:alert] = 'User not found!'
 
     end
   end
 
+
   def login
   end
+
 
   def welcome
   end
 
-  def page_requires_login
 
+  def page_requires_login
   end
 
+
   def destroy
-    session.destroy()
+
+    session.destroy
     redirect_to '/welcome'
+
   end
 end

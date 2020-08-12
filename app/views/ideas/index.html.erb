@@ -1,21 +1,21 @@
-<div class="content-section">
-    <div class="row idea-metadata">
-        <div class="col-sm">
-            <h2>Ideas Home</h2>
-        </div>
-        <div class="col-sm mr-auto">
-            <%= link_to 'Create', new_idea_path(@idea), class: 'btn btn-light mr-auto' %>
-        </div>
-    </div>
+<div class="card my-4">
+    <h4 class="card-header">Latest Ideas</h4>
+    
+    <div class="content-section">
+        
+        <% @ideas.each do |idea| %>
 
-    <br>
-    <% @ideas.each do |idea| %>
-    <div class="card idea-metadata">
-        <div class="card-body">
-            <p><%= User.find_by(id: idea.user_id).username %></p>
-            <h4 class="card-title"><%= link_to idea.title, idea %></h4>
+        <div class="card mb-4">
+            <div class="card-body">
+            <h5 class="card-title"><%= idea.title %></h5>
             <p class="card-text"><%= idea.content %></p>
+
+            </div>
+            <div class="card-footer text-muted">
+            Posted on <%= idea.created_at.strftime("%B %-d, %Y") %> by <b><%= User.find_by(id: idea.user_id).username %></b>
+            </div>
         </div>
+        
+        <% end %>
     </div>
-    <% end %>
 </div>

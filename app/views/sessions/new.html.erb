@@ -1,17 +1,10 @@
-<h3 class="content-title">Login</h3>
-<br>
-<%= simple_form_for :login_user, { url: '/login' } do |f| %>
-
-    <% flash.each do |type, message| %>
-        <div class="alert alert-danger mr-auto">
-            <%= message %>
-        </div>
-    <% end %>
-
-<%= f.input :username %>
-
-<%= f.input :password %>
-
-<%= f.submit :submit %>
-
-<% end %> 
+<div class="card my-4">
+    <h4 class="card-header">Login</h4>
+    <div class="content-section">
+        <%= simple_form_for :login_user, { url: '/login' } do |f| %>
+            <%= f.input :username, placeholder: 'username' %>
+            <%= f.input :password, placeholder: 'password' %>
+            <%= f.submit :Submit, class: 'btn btn-secondary' %>
+        <% end %> 
+    </div>
+</div>
