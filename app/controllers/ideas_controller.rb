@@ -84,10 +84,47 @@ class IdeasController < ApplicationController
     def user_ideas
 
         @user = User.find_by(id: session[:user_id])
-        page_title = @user.username + ' Ideas'
         @ideas = @user.ideas.order(created_at: :desc).all
         render :index, locals: { page_title: 'My Ideas'}
 
+    end
+
+
+    def search
+
+        result_alert = nil
+
+        if params[:search].blank?
+
+            result_alert = 'Empty search.'            
+        
+        else
+
+            result_alert = params[:search]
+
+            search_ = params[:search].downcase
+            search_ = search_.split
+
+            results = Array.new
+
+            search_.each do |word|
+
+                results += Idea.all.where(" title LIKE '%#{word}%' ")
+
+            end
+
+            @ideas = results
+
+            if @ideas.length < 0
+
+                result_alert = 'Results not found.'
+            
+            end
+        
+        end
+        
+        render :index, locals: { page_title: 'Search Results' }
+        flash.now[:alert] = result_alert
     end
 
 

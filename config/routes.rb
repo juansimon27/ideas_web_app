@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   post 'login', to: 'sessions#create'
 
+  get 'search/ideas', to: 'ideas#search'
+
   get 'welcome', to: 'sessions#welcome'
 
   get 'authorized', to: 'sessions#page_requires_login'

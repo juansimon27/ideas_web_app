@@ -4,12 +4,13 @@
         <div class="card my-4">
           <h4 class="card-header">Search</h4>
           <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
+
+              <%= form_tag('/search/ideas', method: :get) do %>
+                <div class="input-group">
+                  <%= search_field_tag 'search', 'Search for...', class: 'form-control' %>
+                  <%= button_tag 'Go!', class: 'btn btn-secondary input-group-append' %>
+                </div>
+              <% end %>
           </div>
         </div>
 

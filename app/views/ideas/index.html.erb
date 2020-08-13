@@ -2,6 +2,8 @@
     <h4 class="card-header"><%= page_title %></h4>
     
     <div class="content-section">
+
+    <% if !@ideas.nil? %>
         
         <% @ideas.each do |idea| %>
 
@@ -17,5 +19,10 @@
         </div>
         
         <% end %>
+    <% else %>
+
+        <p class="card-text">No records found!</p>
+
+    <% end %>
     </div>
 </div>
