@@ -106,16 +106,6 @@ class IdeasController < ApplicationController
 
     end
 
-    def user_ideas
-
-        @user = User.find_by(id: session[:user_id])
-        @ideas = @user.ideas.order(created_at: :desc).all
-
-        render :index, locals: { page_title: 'My Ideas'}
-
-    end
-
-
     def search
 
         result_alert = nil

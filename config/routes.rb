@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :ideas
 
-  get 'user/ideas', to: 'ideas#user_ideas'
-
   get 'login', to: 'sessions#new'
 
   post 'login', to: 'sessions#create'
