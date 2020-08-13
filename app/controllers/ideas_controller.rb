@@ -1,9 +1,34 @@
 class IdeasController < ApplicationController
 
+    PER_PAGE = 5
+
     def index
 
-        @ideas = Idea.order(created_at: :desc).all
-        render locals: { page_title: 'Latest Ideas' }
+        @index_view = params.fetch(:view, 'home')
+        @page = params.fetch(:page, 0).to_i
+
+        if @index_view == 'latest'
+
+            query = Idea.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+            title = 'Latest Ideas'
+          
+        elsif @index_view == 'user'
+
+            @user = User.find_by(id: session[:user_id])
+            query = @user.ideas.order(created_at: :desc)
+            title = 'My Ideas'
+        
+        else
+
+            query = Idea.order(created_at: :desc)
+            title = 'Ideas Home'
+            
+        end
+
+        @max_page = @page == (query.length / PER_PAGE).to_i
+        @ideas = query.offset(@page * PER_PAGE).take(PER_PAGE)
+
+        render locals: { page_title: title }
         
     end
 
@@ -85,6 +110,7 @@ class IdeasController < ApplicationController
 
         @user = User.find_by(id: session[:user_id])
         @ideas = @user.ideas.order(created_at: :desc).all
+
         render :index, locals: { page_title: 'My Ideas'}
 
     end
@@ -93,38 +119,26 @@ class IdeasController < ApplicationController
     def search
 
         result_alert = nil
+        @page = params.fetch(:page, 0).to_i
+        @search = params[:search]
 
-        if params[:search].blank?
+        if @search.blank?
 
-            result_alert = 'Empty search.'            
+            result_alert = 'Empty search, try again.'            
         
         else
-
-            result_alert = params[:search]
-
-            search_ = params[:search].downcase
-            search_ = search_.split
-
-            results = Array.new
-
-            search_.each do |word|
-
-                results += Idea.all.where(" title LIKE '%#{word}%' ")
-
-            end
-
-            @ideas = results
-
-            if @ideas.length < 0
-
-                result_alert = 'Results not found.'
-            
-            end
+        
+            search_ = @search.downcase.split
+            query = Idea.where(" title LIKE '%#{search_.join('%')}%'")
         
         end
         
-        render :index, locals: { page_title: 'Search Results' }
-        flash.now[:alert] = result_alert
+        @max_page = @page == (query.length / PER_PAGE).to_i
+        @ideas = query.offset(@page * PER_PAGE).take(PER_PAGE)
+
+        flash.now[:alert] = result_alert if !result_alert.nil?
+        render :search, locals: { page_title: 'Search Results', for_search: params[:search] }
+        
     end
 
 

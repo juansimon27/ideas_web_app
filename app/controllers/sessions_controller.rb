@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:login_user][:password])
 
       session[:user_id] = @user.id
+      session[:expires_at] = Time.now + 1.hour
       redirect_to '/welcome'
 
     else

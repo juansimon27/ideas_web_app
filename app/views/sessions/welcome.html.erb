@@ -1,9 +1,6 @@
 <div class="jumbotron jumbo-content bg-light">
-
     <% if logged_in? %>
-        <h2>
-        Something in mind @<%= current_user.username %>?
-        </h2>
+        <h2>Something in mind @<%= current_user.username %>?</h2>
         <hr class="my-4">
         <p>Share with us!</p>
         <%= link_to 'New Idea', '/ideas/new', class: 'btn btn-secondary' %>
@@ -14,5 +11,4 @@
         <p><b>Not a member yet?</b> Join us today!</p>
         <%= link_to 'Sign Up', '/users/new', class: 'btn btn-secondary' %>
     <% end %>
-
 </div>

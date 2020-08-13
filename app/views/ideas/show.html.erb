@@ -1,20 +1,19 @@
 <div class="card my-4">
     <h4 class="card-header">Details</h4>
     <div class="content-section">
-    <% if @idea.user_id == session[:user_id] %>
-        <div class="btn-group btn-group-sm" role="group" aria-label="First group">
-            <%= link_to 'Edit', edit_idea_path(@idea), class: 'btn btn-secondary' %>
-            <%= link_to 'Delete', idea_path(@idea), 
-            method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, 
-            class: 'btn btn-danger' %>
-        </div>
-     <% end %>
-     <hr>
         <h2 class="card-title mr-2"><%= @idea.title.titlecase %></h2>
+        <p class="text-muted">Posted on <%= @idea.created_at.strftime('%B %-d, %Y at %l:%M %P') %></p>
         <p class="lead">by @<b><%= User.find_by(id: @idea.user_id).username %></b></p>
         <hr>
-        <p class="text-muted">Posted on <%= @idea.created_at.strftime('%B %-d, %Y at %l:%M %P') %></p>
+        <p class="lead"><%= @idea.content %></p>
         <hr>
-        <p class="lead"><%= @idea.content %></p>       
+        <% if @idea.user_id == session[:user_id] %>
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                <%= link_to 'Edit', edit_idea_path(@idea), class: 'btn btn-secondary' %>
+                <%= link_to 'Delete', idea_path(@idea), 
+                method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, 
+                class: 'btn btn-danger' %>
+            </div>
+        <% end %>       
     </div>
 </div>

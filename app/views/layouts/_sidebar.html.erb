@@ -1,32 +1,26 @@
-
-
-<!-- Search Widget -->
-        <div class="card my-4">
-          <h4 class="card-header">Search</h4>
-          <div class="card-body">
-
-              <%= form_tag('/search/ideas', method: :get) do %>
-                <div class="input-group">
-                  <%= search_field_tag 'search', 'Search for...', class: 'form-control' %>
-                  <%= button_tag 'Go!', class: 'btn btn-secondary input-group-append' %>
-                </div>
-              <% end %>
-          </div>
+<!-- Search -->
+<div class="card my-4">
+  <h4 class="card-header">Search</h4>
+  <div class="card-body">
+      <%= form_tag('/search/ideas', method: :get) do %>
+        <div class="input-group">
+          <%= search_field_tag 'search', nil , class: 'form-control' %>
+          <%= button_tag 'Go!', class: 'btn btn-secondary input-group-append', name: nil %>
         </div>
+      <% end %>
+  </div>
+</div>
 
-    <div class="card my-4">
-        <h4 class="card-header">Our Sidebar</h4>
-        <div class="card-body">
-        <p class='text-muted'>You can put any information here you'd like.</p>
-        <ul class="list-group">
-            <li class="list-group-item"><%= link_to 'New Idea', new_idea_path(@idea), class: 'list-group-item-light' %></li>
-            <li class="list-group-item"><%= link_to 'My Ideas', '/user/ideas', class: 'list-group-item-light' %></li>
-            <li class="list-group-item"><%= link_to 'Latest Ideas', '/ideas', class: 'list-group-item-light' %></li>
-        </ul>
-        <br>
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-light">Git Repository</li>
-            <li class="list-group-item list-group-item-light">Contact Us</li>
-        </ul>
-        </div>
-    </div>
+<!-- Options -->
+<div class="card my-4">
+  <h4 class="card-header">Options</h4>
+  <div class="card-body">
+    <p class='text-muted'>Manage your own ideas and see the ones created by others:</p>
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to 'Create New Idea', new_idea_path(@idea), class: 'list-group-item-light' %></li>
+      <li class="list-group-item"><%= link_to 'Go to My Ideas', ideas_path(view: 'user'), class: 'list-group-item-light' %></li>
+      <li class="list-group-item"><%= link_to 'Go to All Ideas', ideas_path, class: 'list-group-item-light' %></li>
+      <li class="list-group-item"><%= link_to 'Go to Latest Ideas', ideas_path(view: 'latest'), class: 'list-group-item-light' %></li>
+    </ul>
+  </div>
+</div>

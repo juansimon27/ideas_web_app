@@ -1,0 +1,1 @@
+Rails.application.config.session_store :cookie_store, key: '_app_ideas_session', expire_after: 2.hours
