@@ -1,0 +1,9 @@
+<div class="card my-4">
+    <h4 class="card-header">Reset Password</h4>
+    <div class="content-section">
+        <%= simple_form_for :reset_password, { url: passwords_path } do |f| %>
+            <%= f.input :email, placeholder: 'email', label: 'Insert your user email to reset your password:' %>
+            <%= f.submit :Send, class: 'btn btn-secondary' %>
+        <% end %> 
+    </div>
+</div>

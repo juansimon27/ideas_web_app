@@ -1,0 +1,10 @@
+<div class="card my-4">
+    <h4 class="card-header">Reset Password for @<%= @user.username %></h4>
+    <div class="content-section">
+        <%= simple_form_for @user, url: password_path(@user.reset_password_token), method: 'patch' do |f| %>
+            <%= f.input :password, placeholder: 'password', label: 'New Password' %>
+            <%= f.input :password_confirmation, placeholder: 'password confirmation', label: 'Confirm New Password' %>
+            <%= f.submit :Submit, { class: 'btn btn-secondary' } %>
+        <% end %>
+    </div>
+</div>

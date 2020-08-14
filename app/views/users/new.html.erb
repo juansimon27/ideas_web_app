@@ -3,6 +3,7 @@
     <div class="content-section">
         <%= simple_form_for @user do |f| %>
             <%= f.input :username, placeholder: 'username' %>
+            <%= f.input :email, placeholder: 'email' %>
             <%= f.input :password, placeholder: 'password' %>
             <%= f.input :password_confirmation, placeholder: 'password confirmation' %>
             <%= f.submit :Submit, { class: 'btn btn-secondary' } %>

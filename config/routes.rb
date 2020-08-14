@@ -16,14 +16,8 @@ Rails.application.routes.draw do
 
   get 'logout', to: 'sessions#destroy'
 
+  resources :passwords, only: [:new, :create, :edit, :update]
 
-  # get 'sessions/new'
-  # get 'sessions/create'
-  # get 'sessions/login'
-  # get 'sessions/welcome'
-  # get 'users/new'
-  # get 'users/create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'sessions#welcome'
   
 end

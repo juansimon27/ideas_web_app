@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
     if @user.save
 
+      UserMailer.welcome_email(@user).deliver_now
+
       session[:user_id] = @user.id
 
       redirect_to '/welcome'
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
 
   def user_params
 
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
 
   end
 end

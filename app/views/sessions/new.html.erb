@@ -4,6 +4,8 @@
         <%= simple_form_for :login_user, { url: '/login' } do |f| %>
             <%= f.input :username, placeholder: 'username' %>
             <%= f.input :password, placeholder: 'password' %>
+            <%= link_to 'Forgot your password?', new_password_path %>
+            <hr>
             <%= f.submit :Submit, class: 'btn btn-secondary' %>
         <% end %> 
     </div>
