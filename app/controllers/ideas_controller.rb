@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
 
         if @index_view == 'latest'
 
-            query = Idea.where(created_at: (Time.current - 1.day)..Time.current)
+            query = Idea.where(created_at: (Time.current - 1.day)..Time.current).order(created_at: :desc)
             title = 'Latest Ideas'
           
         elsif @index_view == 'user'
