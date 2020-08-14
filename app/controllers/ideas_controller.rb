@@ -142,6 +142,8 @@ class IdeasController < ApplicationController
 
         end
 
+        @ideas = query.offset(@page * PER_PAGE).take(PER_PAGE)
+
         flash.now[:alert] = result_alert if !result_alert.nil?
         render :search, locals: { page_title: 'Search Results', for_search: params[:search] }
         
