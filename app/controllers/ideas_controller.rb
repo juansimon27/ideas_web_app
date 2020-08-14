@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
 
         if @index_view == 'latest'
 
-            query = Idea.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+            query = Idea.where(created_at: (Time.current - 1.day)..Time.current)
             title = 'Latest Ideas'
           
         elsif @index_view == 'user'
@@ -25,7 +25,7 @@ class IdeasController < ApplicationController
             
         end
 
-        if query.length % PER_PAGE == 0
+        if query.length % PER_PAGE == 0 && query.length >= PER_PAGE
 
             @max_page = (query.length / PER_PAGE).to_i - 1
                  
@@ -132,8 +132,15 @@ class IdeasController < ApplicationController
         
         end
         
-        @max_page = @page == (query.length / PER_PAGE).to_i
-        @ideas = query.offset(@page * PER_PAGE).take(PER_PAGE)
+        if query.length % PER_PAGE == 0 && query.length >= PER_PAGE
+
+            @max_page = (query.length / PER_PAGE).to_i - 1
+                 
+        else
+
+            @max_page = (query.length / PER_PAGE).to_i
+
+        end
 
         flash.now[:alert] = result_alert if !result_alert.nil?
         render :search, locals: { page_title: 'Search Results', for_search: params[:search] }
