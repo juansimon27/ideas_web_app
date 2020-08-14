@@ -20,7 +20,7 @@
                         <% end %>
                     </span>
                     <span>
-                        <% if !@max_page %>
+                        <% if @page != @max_page  %>
                             <%= link_to 'Next', ideas_path(view: @index_view, page: @page + 1), class: 'btn btn-secondary' %>
                         <% end %>
                     </span>

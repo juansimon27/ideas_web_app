@@ -25,7 +25,16 @@ class IdeasController < ApplicationController
             
         end
 
-        @max_page = @page == (query.length / PER_PAGE).to_i
+        if query.length % PER_PAGE == 0
+
+            @max_page = (query.length / PER_PAGE).to_i - 1
+                 
+        else
+
+            @max_page = (query.length / PER_PAGE).to_i
+
+        end
+        
         @ideas = query.offset(@page * PER_PAGE).take(PER_PAGE)
 
         render locals: { page_title: title }
@@ -79,10 +88,10 @@ class IdeasController < ApplicationController
 
         if @idea.update(idea_params)
 
-            redirect_to @idea
+            redirect_to @idea, notice: 'Idea updated successfully.'
 
         else
-        
+            
             render 'edit'
 
         end
@@ -100,7 +109,7 @@ class IdeasController < ApplicationController
         else
 
             @idea.destroy
-            redirect_to '/user/ideas'
+            redirect_to ideas_path(view: 'user'), notice: 'Idea deleted successfully.'
 
         end
 
