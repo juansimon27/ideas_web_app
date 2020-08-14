@@ -5,7 +5,7 @@
         <p class="text-muted">Posted on <%= @idea.created_at.strftime('%B %-d, %Y at %l:%M %P') %></p>
         <p class="lead">by @<b><%= User.find_by(id: @idea.user_id).username %></b></p>
         <hr>
-        <p class="lead"><%= @idea.content %></p>
+        <p class="lead"><%= simple_format(@idea.content) %></p>
         <hr>
         <% if @idea.user_id == session[:user_id] %>
             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
