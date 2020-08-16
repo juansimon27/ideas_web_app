@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
       flash[:alert] = 'Incorrect user and password combination.'
 
     end
+
   end
 
 
@@ -38,4 +39,5 @@ class SessionsController < ApplicationController
     redirect_to '/welcome'
 
   end
+  
 end

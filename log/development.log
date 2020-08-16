@@ -39463,3 +39463,166 @@ Processing by IdeasController#show as HTML
 Completed 200 OK in 59ms (Views: 53.4ms | ActiveRecord: 0.9ms | Allocations: 9033)
 
 
+Started GET "/ideas" for ::1 at 2020-08-14 18:37:07 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IdeasController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Redirected to http://localhost:3000/welcome
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 4.0ms | Allocations: 4508)
+
+
+Started GET "/welcome" for ::1 at 2020-08-14 18:37:07 -0500
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1236)
+Started GET "/ideas?view=latest" for ::1 at 2020-08-14 18:37:08 -0500
+Processing by IdeasController#index as HTML
+  Parameters: {"view"=>"latest"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Redirected to http://localhost:3000/welcome
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms | Allocations: 1612)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Started GET "/welcome" for ::1 at 2020-08-14 18:37:08 -0500
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 1376)
+  Rendered layouts/_sidebar.html.erb (Duration: 9.1ms | Allocations: 610)
+Completed 200 OK in 611ms (Views: 596.0ms | ActiveRecord: 0.5ms | Allocations: 36420)
+
+
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 14.3ms | Allocations: 806)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 814)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 298)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.6ms | Allocations: 6705)
+
+
+Started GET "/ideas?view=latest" for ::1 at 2020-08-14 18:37:08 -0500
+Processing by IdeasController#index as HTML
+  Parameters: {"view"=>"latest"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Redirected to http://localhost:3000/welcome
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1087)
+
+
+Started GET "/welcome" for ::1 at 2020-08-14 18:37:08 -0500
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 1.9ms | Allocations: 799)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 811)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 298)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.4ms | Allocations: 7035)
+
+
+Started GET "/ideas?view=latest" for ::1 at 2020-08-14 18:37:10 -0500
+Processing by IdeasController#index as HTML
+  Parameters: {"view"=>"latest"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+Redirected to http://localhost:3000/welcome
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1097)
+
+
+Started GET "/welcome" for ::1 at 2020-08-14 18:37:11 -0500
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 1.8ms | Allocations: 800)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 811)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 298)
+Completed 200 OK in 51ms (Views: 49.7ms | ActiveRecord: 0.3ms | Allocations: 7066)
+
+
+Started GET "/login" for ::1 at 2020-08-14 18:37:13 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"38ULZP6s209y+NquOYIvYZAenRim87ULwa6avPX/fJ6i1ndAOG74Kn9jPXphGdWmT1hj9rwMeeLYYej9VH1zpQ=="}
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 201.7ms | Allocations: 18243)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 913)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 299)
+Completed 200 OK in 260ms (Views: 257.1ms | ActiveRecord: 0.4ms | Allocations: 24591)
+
+
+Started POST "/login" for ::1 at 2020-08-14 18:37:18 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"uV1WFDm80YnDbNGtMBvMP15ktRXGOhnL3UEEQR7e2crETiow/37y7M73NnlogDb4gSJL+9zF1SLEjnYAv1zW8Q==", "login_user"=>{"username"=>"JuanGamboa", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JuanGamboa"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 337ms (ActiveRecord: 47.9ms | Allocations: 6905)
+
+
+Started GET "/welcome" for ::1 at 2020-08-14 18:37:19 -0500
+Processing by SessionsController#welcome as HTML
+  Rendering sessions/welcome.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered sessions/welcome.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1182)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 298)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.4ms | Allocations: 7914)
+
+
+Started GET "/ideas?view=latest" for ::1 at 2020-08-14 18:37:22 -0500
+Processing by IdeasController#index as HTML
+  Parameters: {"view"=>"latest"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mIdea Load (1.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."created_at" BETWEEN $1 AND $2 ORDER BY "ideas"."created_at" DESC[0m  [["created_at", "2020-08-13 23:37:22.399506"], ["created_at", "2020-08-14 23:37:22.399506"]]
+  ↳ app/controllers/ideas_controller.rb:28:in `index'
+  [1m[36mIdea Load (0.5ms)[0m  [1m[34mSELECT "ideas".* FROM "ideas" WHERE "ideas"."created_at" BETWEEN $1 AND $2 ORDER BY "ideas"."created_at" DESC LIMIT $3 OFFSET $4[0m  [["created_at", "2020-08-13 23:37:22.399506"], ["created_at", "2020-08-14 23:37:22.399506"], ["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/controllers/ideas_controller.rb:38:in `index'
+  Rendering ideas/index.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ideas/index.html.erb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ideas/index.html.erb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/ideas/index.html.erb:12
+  Rendered ideas/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1173)
+  Rendered layouts/_sidebar.html.erb (Duration: 0.4ms | Allocations: 299)
+Completed 200 OK in 129ms (Views: 60.7ms | ActiveRecord: 6.4ms | Allocations: 17135)
+
+

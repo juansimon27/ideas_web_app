@@ -50,6 +50,7 @@ class PasswordsController < ApplicationController
             render :edit
 
         end
+        
     end
 
     private
